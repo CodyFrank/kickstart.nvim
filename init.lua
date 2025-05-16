@@ -468,8 +468,8 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {} },
-      'williamboman/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', version = '^1.0.0', opts = {} },
+      { 'mason-org/mason-lspconfig.nvim', version = '^1.0.0' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -717,6 +717,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'black',
+        -- 'isort',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -765,7 +766,7 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 500,
+          timeout_ms = 2000,
           lsp_format = lsp_format_opt,
         }
       end,
@@ -773,8 +774,8 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = {
-          -- "isort",
           'black',
+          -- 'isort',
         },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
@@ -969,7 +970,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -998,7 +999,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
