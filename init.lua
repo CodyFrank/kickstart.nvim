@@ -728,7 +728,10 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'black',
         'prettierd',
+        'markdownlint',
+        'jsonlint',
         -- 'isort',
+        --
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -780,7 +783,7 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 30000,
+          timeout_ms = 500,
           -- async = true,
           lsp_format = lsp_format_opt,
         }
@@ -996,8 +999,8 @@ require('lazy').setup({
         'html',
         'lua',
         'luadoc',
-        'markdown',
-        'markdown_inline',
+        -- 'markdown',
+        -- 'markdown_inline',
         'query',
         'vim',
         'vimdoc',
